@@ -1,0 +1,19 @@
+<form (ngSubmit)= "Onclick()" #f="ngForm" >
+  <input type="text" ngModel name="Queryparam" autocomplete="off">
+  <button>search</button>
+</form>
+<div *ngIf="SearchResult">
+  <div>
+    <button (click)="closeResults()" style="float: right;">close</button>
+  </div>
+ <div *ngFor="let data of Data ; index as i">
+    <a href="{{Data[i].link}}"> {{Data[i].title}} </a>
+    <p [innerHTML]="convertToSaveHtml(Data[i].htmlFormattedUrl)"></p>
+    <p [innerHTML]="convertToSaveHtml(Data[i].htmlSnippet)" > </p>
+  </div>
+</div>
+
+
+
+
+
