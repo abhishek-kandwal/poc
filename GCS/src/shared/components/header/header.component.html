@@ -1,4 +1,4 @@
-<form (ngSubmit)= "Onclick()" #f="ngForm" >
+<form (ngSubmit)= "OnclickSearch()" #f="ngForm" >
   <input type="text" ngModel name="Queryparam" autocomplete="off">
   <button>search</button>
 </form>
@@ -7,10 +7,22 @@
     <button (click)="closeResults()" style="float: right;">close</button>
   </div>
  <div *ngFor="let data of Data ; index as i">
-    <a href="{{Data[i].link}}"> {{Data[i].title}} </a>
+
+  <a href="{{Data[i].link}}"> {{Data[i].title}} </a>
     <p [innerHTML]="convertToSaveHtml(Data[i].htmlFormattedUrl)"></p>
-    <p [innerHTML]="convertToSaveHtml(Data[i].htmlSnippet)" > </p>
+    <div style="width: 100%;height: 50px;">
+      <div style="width: 20%;float: left;">
+      <img style="width: 20%; height: 30px;" src="{{Data[i].pagemap.cse_thumbnail[0].src}}">
+      </div>
+      <div style="width: 80%;float: right;">
+          <p [innerHTML]="convertToSaveHtml(Data[i].htmlSnippet)" > </p>
+      </div>
   </div>
+<br>
+  </div>
+
+  <button (click)="prevSearch()">prev</button>
+  <button (click)="nextSearch()">next</button>
 </div>
 
 
