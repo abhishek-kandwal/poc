@@ -1,6 +1,6 @@
 <form (ngSubmit)= "OnclickSearch()" #f="ngForm" >
-  <input type="text" ngModel name="Queryparam" autocomplete="off">
-  <button>search</button>
+  <input type="text" ngModel name="Queryparam" autocomplete="off" required #Queryparam="ngModel">
+  <button [disabled]="!Queryparam.valid">search</button>
 </form>
 <div *ngIf="SearchResult">
   <div>
